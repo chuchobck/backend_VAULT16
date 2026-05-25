@@ -29,4 +29,8 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
-bootstrap();
+if (process.env.VERCEL !== '1') {
+  bootstrap();
+}
+
+export default app;
