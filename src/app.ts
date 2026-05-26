@@ -23,8 +23,23 @@ app.set('trust proxy', 1);
 app.use(helmet());
 
 // ── CORS ─────────────────────────────────────────────────────────────────────
-const allowedOrigins = env.CORS_ORIGINS.split(',').map((o) => o.trim());
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+const allowedOrigins = [
+  ...new Set([
+    ...env.CORS_ORIGINS.split(',').map((o) => o.trim()),
+    env.FRONTEND_URL,
+  ]),
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error(`Origen no permitido: ${origin}`));
+    },
+    credentials: true,
+  }),
+);
 
 // ── Parsers ──────────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' }));
