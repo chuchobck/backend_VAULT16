@@ -12,6 +12,9 @@
     "prisma:generate": "prisma generate",
     "check:contracts": "NODE_PATH=./node_modules tsx ../tools/contract-check/run.ts"
   },
+  "_moduleAliases": {
+    "@": "src"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "0.39.0",
     "@azure/storage-blob": "12.26.0",
