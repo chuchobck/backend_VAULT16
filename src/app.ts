@@ -68,6 +68,10 @@ app.get('/health', async (_req, res) => {
 // ── API Routes ───────────────────────────────────────────────────────────────
 app.use('/api/v1', apiRouter);
 
+app.get('/', (_req, res) => {
+  res.json({ success: true, message: 'Backend funcionando', api: '/api/v1' })
+});
+
 // ── Fallbacks ────────────────────────────────────────────────────────────────
 app.use(notFound);
 app.use(errorHandler);
