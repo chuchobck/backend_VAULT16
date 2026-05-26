@@ -5,7 +5,7 @@ import { validateRequest } from '../../middleware/validateRequest';
 import { uploadFoto } from '../../middleware/upload';
 import { CreateProductoSchema, UpdateProductoSchema } from './productos.schemas';
 import * as controller from './productos.controller';
-import * as aiController from '@/modules/ai-content/ai-content.controller';
+import * as aiController from '../ai-content/ai-content.controller';
 
 export const productosRouter = Router();
 

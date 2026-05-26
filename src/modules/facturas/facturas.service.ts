@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client';
-import { prisma } from '@/config/prisma';
-import { NotFoundError, ConflictError, ForbiddenError } from '@/shared/utils/errors';
-import { registrarAudit, AuditParams } from '@/shared/utils/audit';
+import { prisma } from '../../config/prisma';
+import { NotFoundError, ConflictError, ForbiddenError } from '../../shared/utils/errors';
+import { registrarAudit, AuditParams } from '../../shared/utils/audit';
 import { ListFacturasQuery, ListFacturasMeQuery, CambiarEstadoInput } from './facturas.schemas';
 
 type AuditCtx = Pick<AuditParams, 'id_usuario_bo' | 'id_cliente' | 'ip' | 'user_agent'>;
