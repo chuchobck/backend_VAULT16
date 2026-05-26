@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { authBackoffice } from '@/middleware/authBackoffice';
-import { requireRole } from '@/middleware/requireRole';
-import { validateRequest } from '@/middleware/validateRequest';
-import { uploadFoto } from '@/middleware/upload';
+import { authBackoffice } from '../../middleware/authBackoffice';
+import { requireRole } from '../../middleware/requireRole';
+import { validateRequest } from '../../middleware/validateRequest';
+import { uploadFoto } from '../../middleware/upload';
 import { CreateProductoSchema, UpdateProductoSchema } from './productos.schemas';
 import * as controller from './productos.controller';
 import * as aiController from '@/modules/ai-content/ai-content.controller';
